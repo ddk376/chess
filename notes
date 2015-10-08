@@ -19,3 +19,18 @@ Another way to write #valid_moves would be to make the move on the original boar
 Once you write your Board#dup method, it'll be very straightforward to write Piece#valid_moves without complicated do/undo logic.
 
 It will likely help at this point to put some debug information into your Display class. Set a boolean variable on initialize of your Display for whether or not to show your debug info (you want to be able to easily turn this off). If that flag is set to true, then output some debug info, such as the selected piece's available moves, whether your opponent is in check, and so on.
+
+
+Introduction
+
+Installation
+
+Versions
+
+User Guide
+
+Implementation
+
+Testing
+
+Related Resources

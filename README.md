@@ -1,5 +1,6 @@
 # Chess #
 Terminal Object Oriented Chess written in Ruby
+![Alt text](/chess.png?raw=true "Chess")
 
 # How to Play #
 ``` ruby game.rb ```

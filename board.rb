@@ -1,9 +1,9 @@
-require_relative 'bishop'
-require_relative 'rook'
-require_relative 'queen'
-require_relative 'king'
-require_relative 'knight'
-require_relative 'pawn'
+require_relative 'pieces/bishop'
+require_relative 'pieces/rook'
+require_relative 'pieces/queen'
+require_relative 'pieces/king'
+require_relative 'pieces/knight'
+require_relative 'pieces/pawn'
 require_relative 'chess_error'
 require 'colorize'
 
@@ -27,7 +27,8 @@ class Board
       print "#{BOARD_SIZE - row} "
 
       BOARD_SIZE.times do |col|
-        print " #{self[[row,col]].nil? ? " " : self[[row,col]].to_s} ".colorize(:background => color)
+        print " #{self[[row,col]].nil? ?
+              " " : self[[row,col]].to_s} ".colorize(:background => color)
         color = switch_board_color(color)
       end
 

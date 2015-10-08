@@ -1,0 +1,21 @@
+# Display
+
+Display class handles rendering logic.
+
+Display class has access to the board, and eventually to the game. You'll want to require the colorize gem so you can render in color.
+
+In your Display class, you'll want to create a cursor that you can move around with the keyboard. Eventually, your Player class should encapsulate some of this logic, but for now you can put it in Display.
+
+A cursor will generally require three things: 1. Using STDIN#getc along with a mapping of keys to process your cursor actions/movements (this demo will help you out) 2. An @cursor that remembers the coordinates of the cursor at all times 3. A boolean @selected for storing whether the cursor has selected a piece and is now trying to move it.
+
+As you render your board, you'll want to have the cursor be highlighted in a different color from the rest of your board. You should be able to handle this in your render logic just by checking whether the square you're rendering is your @cursor.
+
+Once you have this working, it's time to start developing your piece logic!
+
+An alternative to duping?
+
+Another way to write #valid_moves would be to make the move on the original board, see if the player is in check, and then "undo" the move. However, this would require that Board have a method to undo moves.
+
+Once you write your Board#dup method, it'll be very straightforward to write Piece#valid_moves without complicated do/undo logic.
+
+It will likely help at this point to put some debug information into your Display class. Set a boolean variable on initialize of your Display for whether or not to show your debug info (you want to be able to easily turn this off). If that flag is set to true, then output some debug info, such as the selected piece's available moves, whether your opponent is in check, and so on.

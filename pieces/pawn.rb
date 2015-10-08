@@ -55,19 +55,4 @@ class Pawn < Piece
     end
     moves
   end
-
-  # def starting_moves
-  #   moves = []
-  #   row, col = pos
-  #   x = DIRECTIONS[color][:vertical_delta]
-  #
-  #   if row == DIRECTIONS[color][:starting_row]
-  #     one_step_pos, two_step_pos = [row + x, col], [row + (2 * x), col]
-  #
-  #     if !obstructed?(one_step_pos) && !obstructed?(two_step_pos)
-  #       moves << two_step_pos
-  #     end
-  #   end
-  #   moves
-  # end
 end

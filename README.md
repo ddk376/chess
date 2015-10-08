@@ -13,7 +13,7 @@ Terminal Object Oriented Chess written in Ruby
 
 ``` #in_check?(color) ``` returns whether a player is in check
 ``` #checkmate?(color) ``` returns whether player is in check, and if none of the player's pieces have any #valid_moves (to be implemented in a moment), then the player is in checkmate.
-``` #dup method ``` duplicates the Board and the pieces on the Board. Overwrote Ruby's #dup method
+``` #dup ``` duplicates the Board and the pieces on the Board. Overwrote Ruby's #dup method
 
 ## Pieces ##
 

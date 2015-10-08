@@ -1,8 +1,8 @@
 # Chess
-Object Oriented Chess written in Ruby
+Terminal Object Oriented Chess written in Ruby
 
 # How to Play
-``` ruby game.rb ``` 
+``` ruby game.rb ```
 
 # Implementation
 

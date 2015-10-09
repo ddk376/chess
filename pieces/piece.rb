@@ -1,4 +1,3 @@
-
 class Piece
 attr_reader :board, :color
 attr_accessor :pos

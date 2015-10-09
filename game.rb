@@ -1,4 +1,5 @@
 require_relative 'board'
+require_relative 'players/humanplayer'
 require 'colorize'
 require 'byebug'
 
@@ -11,7 +12,7 @@ class Game
 
   def initialize
      @board = Board.new
-     @players = [:white, :black]
+     @players = [HumanPlayer.new(:white), HumanPlayer.new(:black)]
      @end_pos = nil
   end
 
@@ -33,10 +34,10 @@ private
   def play_turn
     begin
       print "\n"
-      puts " #{current_player.to_s.capitalize}'s Turn:"
+      puts " #{current_player.color.to_s.capitalize}'s Turn:"
       print "\n"
-      move = get_move
-      board.move(*convert(move)) if valid_move?(move)
+      move = current_player.get_move
+      handle_move(move)
     rescue ArgumentError => e
       system("clear")
       board.render
@@ -54,10 +55,9 @@ private
     end
   end
 
-  def get_move
-    result = []
-    print " Input start piece and end position (ex:'f2,f3'): "
-    input = gets.chomp
+  def handle_move(move)
+    board.move(*convert(move)) if valid_move?(move) &&
+                                  current_player.is_a?(HumanPlayer)
   end
 
   def valid_move?(input)
@@ -66,7 +66,7 @@ private
     raise ChessError.new(" There's no piece there!") if
       board[convert(input).first].nil?
     raise ChessError.new(" Not your piece!") if
-      board[convert(input).first].color != current_player
+      board[convert(input).first].color != current_player.color
 
     true
   end
@@ -106,7 +106,7 @@ private
       puts " #{players.last.to_s.capitalize} #{board[end_pos].class}"\
        " to #{convert_back(*end_pos)}!".colorize(:green)
     end
-    if board.in_check?(current_player)
+    if board.in_check?(current_player.color)
       puts " #{current_player.capitalize} is in check!".colorize(:red)
     end
   end
